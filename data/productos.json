@@ -4,7 +4,7 @@
     "nombre": "Discos de empanadas N.º 12",
     "desc": "Paquete de 12 discos de empanadas tamaño 12",
     "precio": 850,
-    "imagen": "imagenes/discos-12.jpg",
+    "imagen": "https://cdn0.recetasgratis.net/es/posts/8/0/6/masa_para_empanada_al_horno_con_aceite_77608_1200.jpg",
     "categoria": "discos",
     "disponible": true
   },
@@ -13,7 +13,7 @@
     "nombre": "Discos de empanadas N.º 14",
     "desc": "Paquete de 12 discos de empanadas tamaño 14",
     "precio": 900,
-    "imagen": "imagenes/discos-14.jpg",
+    "imagen": "https://cdn0.recetasgratis.net/es/posts/8/0/6/masa_para_empanada_al_horno_con_aceite_77608_1200.jpg",
     "categoria": "discos",
     "disponible": true
   },
@@ -22,7 +22,7 @@
     "nombre": "Discos de empanadas N.º 15",
     "desc": "Paquete de 12 discos de empanadas tamaño 15",
     "precio": 900,
-    "imagen": "imagenes/discos-15.jpg",
+    "imagen": "https://cdn0.recetasgratis.net/es/posts/8/0/6/masa_para_empanada_al_horno_con_aceite_77608_1200.jpg",
     "categoria": "discos",
     "disponible": true
   },
@@ -31,7 +31,7 @@
     "nombre": "Tapa para pascualina",
     "desc": "Paquete con dos tapas para pascualina",
     "precio": 950,
-    "imagen": "imagenes/pascualina.jpg",
+    "imagen": "https://img-global.cpcdn.com/recipes/2e1a8b489218bc9e/680x781cq80/masa-para-tarta-o-pascualina-receta-italiana-foto-principal.jpg",
     "categoria": "discos",
     "disponible": true
   },
@@ -40,7 +40,7 @@
     "nombre": "Pan de lomo",
     "desc": "Pan de lomo artesanal de 18 centímetros",
     "precio": 400,
-    "imagen": "imagenes/pan-lomo.jpg",
+    "imagen": "https://santohorno.com/productos/pan_lomo_tradicional.jpg",
     "categoria": "panificados",
     "disponible": false
   },
@@ -49,7 +49,7 @@
     "nombre": "Prepizza",
     "desc": "Prepizza artesanal lista para completar y hornear",
     "precio": 700,
-    "imagen": "imagenes/prepizza.jpg",
+    "imagen": "https://www.losreyunos.es/assets/img/PREPIZZA%20TOMATE.jpg",
     "categoria": "panificados",
     "disponible": true
   }
