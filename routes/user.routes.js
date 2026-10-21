@@ -11,16 +11,27 @@ const users = JSON.parse(fileUser);
 const router = Router();
 
 router.post('/login', (req, res) => {
-const user = req.body.user;
-const pass = req.body.pass;
+    const user = req.body.user;
+    const pass = req.body.pass;
 
-const result = users.find(e => e.user === user && e.pass === pass);
-if (result) {
-  res.status(200).json({ message: 'usuario encontrado' });
-} else {
-  res.status(401).json({ message: 'usuario no encontrado' })
-}
-})
+    const result = users.find(e =>
+        e.user === user && e.pass === pass && e.activo === true
+    );
+
+    if (result) {
+        res.status(200).json({
+            message: 'usuario encontrado',
+            usuario: {
+                id_usuario: result.id_usuario,
+                user: result.user
+            }
+        });
+    } else {
+        res.status(401).json({
+            message: 'usuario o contraseña incorrectos, o usuario inactivo'
+        });
+    }
+});
 
 router.delete('/delete/:id', (req, res) => {
 

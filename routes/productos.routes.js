@@ -10,7 +10,11 @@ const fileProductos = await readFile('./data/productos.json', 'utf-8');
 
 const productos = JSON.parse(fileProductos);
 
-router.get('/:disponibles', (req, res) => {
+router.get('/', (req, res) => {
+    res.status(200).json(productos);
+});
+
+router.get('/disponibles', (req, res) => {
 
     const result =  productos
     .filter(e => e.disponible === true)
@@ -42,6 +46,14 @@ router.put('/precio/update/:id', (req, res) => {
 }
     
 
+});
+
+router.get('/categoria/:categoria', (req, res) => {
+    const categoria = req.params.categoria;
+
+    const result = productos.filter(e => e.categoria === categoria);
+
+    res.status(200).json(result);
 });
 
 

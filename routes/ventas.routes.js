@@ -6,7 +6,7 @@ const ventas = JSON.parse(fileVentas);
 
 const router = Router();
 
-router.post('/:fechas', (req, res) => {
+router.post('/fechas', (req, res) => {
     const desde = req.body.desde;
     const hasta = req.body.hasta;
 
@@ -34,6 +34,31 @@ router.get("/:impagas", (req, res) => {
   res.status(401).json({ message: 'no hay ventas impagas' })
 }
 
+});
+
+
+
+router.post('/comprar', async (req, res) => {
+    const orden = req.body;
+
+    orden.id_venta = 1;
+    orden.pagada = false;
+
+    if (ventas.length > 0) {
+        orden.id_venta = ventas[ventas.length - 1].id_venta + 1;
+    }
+
+    ventas.push(orden);
+
+    await writeFile(
+        './data/ventas.json',
+        JSON.stringify(ventas, null, 2)
+    );
+
+    res.status(201).json({
+        message: 'Orden creada',
+        orden: orden
+    });
 });
 
 

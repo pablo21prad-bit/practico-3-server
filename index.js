@@ -1,6 +1,8 @@
 /*importamos express*/
 import express from "express";
 
+import cors from "cors";
+
 /* importamos los metodos readfile y writefile de fs/promises para poder leer y escribir archivos de manera asincrona*/
 import { readFile, writeFile } from  "fs/promises";
 
@@ -10,6 +12,9 @@ import ventasRouter from "./routes/ventas.routes.js"
 
 /*creamos una instancia de express*/
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 /*definimos el puerto en el que se ejecutará el servidor*/
 const PORT = 3001;
