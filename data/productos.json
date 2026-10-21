@@ -42,7 +42,7 @@
     "precio": 400,
     "imagen": "https://santohorno.com/productos/pan_lomo_tradicional.jpg",
     "categoria": "panificados",
-    "disponible": false
+    "disponible": true
   },
   {
     "id_producto": 106,
