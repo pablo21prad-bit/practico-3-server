@@ -1,11 +1,63 @@
-Hola profe, para esta entrega usé el back del práctico anterior y le agregué lo necesario para conectarlo con el front.
+# Práctico 4 - Aplicaciones Web 2
 
-En user.routes.js está el login, que busca el usuario y la contraseña. Si el usuario está activo, devuelve sus datos para poder hacer la compra.
+## Mi proyecto
 
-En productos.routes.js agregué una ruta para mostrar todos los productos y otra para filtrarlos por categoría. También quedó la ruta para modificar los precios.
+Hice una tienda de panificados. En la página se puede iniciar sesión, ver productos, agregarlos al carrito y hacer una compra.
 
-En ventas.routes.js agregué /comprar, que recibe el usuario, los productos del carrito, la fecha y el total. Después guarda la orden en ventas.json con un id y como no pagada.
+En este práctico seguí trabajando sobre el proyecto anterior y agregué MongoDB, bcrypt y JWT.
 
-Los datos se siguen guardando en archivos JSON. Elegí multirepo, por eso el back y el front están en repositorios separados.
+## Qué cambié
 
-Para levantar el servidor hay que ejecutar npm install y después npm start. Funciona en el puerto 3001.
+- Antes guardaba los datos en archivos JSON. Ahora los usuarios, productos y ventas se guardan en **MongoDB**.
+- Usé **bcrypt** para que las contraseñas no se guarden como texto normal.
+- Usé **JWT** para comprobar que el usuario inició sesión antes de comprar.
+- Completé el **CRUD de productos**: crear, ver, modificar el precio y eliminar.
+
+## Herramientas que usé
+
+- HTML, CSS y JavaScript para la página.
+- Node.js y Express para el servidor.
+- MongoDB y Mongoose para guardar los datos.
+- bcryptjs y jsonwebtoken para el login y la seguridad.
+- dotenv y cors para la configuración y conexión.
+- Postman para probar las rutas y MongoDB Compass para ver los datos.
+
+## Carpetas principales
+
+- **CLIENT:** contiene las páginas de la tienda, el login y el carrito.
+- **SERVER:** contiene el servidor y las rutas de usuarios, productos y ventas.
+- **SERVER/db/schemas:** define los datos que se guardan en MongoDB.
+- **SERVER/db/connection.js:** conecta el servidor con MongoDB.
+
+## Pruebas que hice
+
+Desde Postman pude crear un usuario, iniciar sesión y recibir un token JWT. También probé crear, consultar, modificar y eliminar un producto. Sin token, el servidor no permite hacer las operaciones protegidas.
+
+Desde la página pude iniciar sesión, agregar productos al carrito y comprar. La venta quedó guardada en MongoDB.
+
+## Cómo ejecutar el proyecto
+
+1. Tener Node.js y MongoDB instalados.
+2. Entrar a la carpeta **SERVER** y ejecutar `npm install`.
+3. Crear un archivo `.env` dentro de **SERVER** con estas variables:
+
+```env
+PORT=3008
+MONGODB_URI=mongodb://127.0.0.1:27017/
+JWT_SECRET=COLOCAR_UNA_CLAVE_SECRETA
+```
+
+4. Ejecutar `node index.js` dentro de **SERVER**.
+5. Abrir `CLIENT/index.html` con Live Server en VS Code.
+
+El archivo `.env` no se sube a GitHub.
+
+## Enlaces
+
+- **GitHub - SERVER:** https://github.com/pablo21prad-bit/practico-3-server.git
+- **GitHub - CLIENT:** https://github.com/pablo21prad-bit/practico-3-client.git
+- **Video explicativo:** PEGAR_ENLACE
+
+## Qué aprendí
+
+Aprendí a conectar mi página con MongoDB, guardar contraseñas protegidas y usar tokens para controlar las compras. También practiqué las operaciones CRUD con Postman.
