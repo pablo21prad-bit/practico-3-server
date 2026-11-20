@@ -1,38 +1,50 @@
-/*importamos express*/
-import express from "express";
 
+/* importamos las variables de entorno */
+import 'dotenv/config';
+
+/* importamos express */
+import express from "express";
 import cors from "cors";
 
-/* importamos los metodos readfile y writefile de fs/promises para poder leer y escribir archivos de manera asincrona*/
-import { readFile, writeFile } from  "fs/promises";
+/* importamos las rutas */
+import UserRouter from "./routes/user.routes.js";
+import ProductosRouter from "./routes/productos.routes.js";
+import ventasRouter from "./routes/ventas.routes.js";
 
-import UserRouter from "./routes/user.routes.js"
-import ProductosRouter from "./routes/productos.routes.js"
-import ventasRouter from "./routes/ventas.routes.js"
+/* importamos la conexión a MongoDB */
+import { connectToDatabase } from "./db/connection.js";
 
-/*creamos una instancia de express*/
+/* creamos una instancia de express */
 const app = express();
 
+/* configuramos el servidor */
 app.use(cors());
 app.use(express.json());
 
-/*definimos el puerto en el que se ejecutará el servidor*/
-const PORT = 3001;
+/* obtenemos el puerto desde el archivo .env */
+const PORT = process.env.PORT;
 
-/*le permite al servidor entender los datos JSON que llegan en el Body*/
-app.use(express.json());
-
-/*levantamos el servidor*/
-app.listen(PORT, () => {
-  console.log(`servidor levantado en el puerto ${PORT}`);
+/* ruta principal */
+app.get("/", (req, res) => {
+    res.send("hola");
 });
 
-app.get("/" , (req, res) => {
-    res.send(`hola`)
-})
+/* rutas de usuario, productos y ventas */
+app.use("/users", UserRouter);
+app.use("/productos", ProductosRouter);
+app.use("/ventas", ventasRouter);
 
-/*rutas de usuario*/
+/* conectamos MongoDB y levantamos el servidor */
+try {
+    await connectToDatabase();
 
-app.use("/users", UserRouter)
-app.use("/productos", ProductosRouter)
-app.use("/ventas", ventasRouter)
+    console.log("MongoDB conectado correctamente");
+
+    app.listen(PORT, () => {
+        console.log(`Servidor levantado en el puerto ${PORT}`);
+    });
+
+} catch (error) {
+    console.log("Error al conectar con MongoDB:", error);
+    process.exit(1);
+}
