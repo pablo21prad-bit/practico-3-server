@@ -44,20 +44,24 @@ Desde la página pude iniciar sesión, agregar productos al carrito y comprar. L
 ```env
 PORT=3008
 MONGODB_URI=mongodb://127.0.0.1:27017/
-JWT_SECRET=COLOCAR_UNA_CLAVE_SECRETA
-```
+
 
 4. Ejecutar `node index.js` dentro de **SERVER**.
 5. Abrir `CLIENT/index.html` con Live Server en VS Code.
 
-El archivo `.env` no se sube a GitHub.
 
 ## Enlaces
 
 - **GitHub - SERVER:** https://github.com/pablo21prad-bit/practico-3-server.git
 - **GitHub - CLIENT:** https://github.com/pablo21prad-bit/practico-3-client.git
-- **Video explicativo:** PEGAR_ENLACE
+
 
 ## Qué aprendí
 
 Aprendí a conectar mi página con MongoDB, guardar contraseñas protegidas y usar tokens para controlar las compras. También practiqué las operaciones CRUD con Postman.
+
+
+Usuario: pedro
+
+
+Contraseña: clave123
